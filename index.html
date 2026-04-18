@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neon Cyber Profile</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ENTER SCREEN -->
+  <section id="enter-screen">
+    <canvas id="enter-canvas"></canvas>
+    <div class="es-grid"></div>
+    <div class="es-scan"></div>
+    <div class="es-vignette"></div>
+
+    <div class="es-corner tl"></div>
+    <div class="es-corner tr"></div>
+    <div class="es-corner bl"></div>
+    <div class="es-corner br"></div>
+
+    <div class="es-hud-top">
+      <span>CYBER LINK // ACTIVE</span>
+      <span id="es-clock">00:00:00</span>
+      <span class="es-blink">ONLINE</span>
+    </div>
+
+    <div class="es-center">
+      <div class="es-rings">
+        <div class="es-ring er1"></div>
+        <div class="es-ring er2"></div>
+        <div class="es-ring er3"></div>
+        <div class="es-ring er4"></div>
+        <div class="es-coreglow"></div>
+
+        <div class="es-titleblock">
+          <span class="es-pre">BE REAL</span>
+          <h1 class="es-name" data-text="ENTER">BEAR</h1>
+          <p class="es-tagline">Don't copy, Make yours.</p>
+        </div>
+      </div>
+
+      <div class="es-sep">
+        <span class="sl"></span>
+        <span class="sd">◆</span>
+        <span class="sl"></span>
+      </div>
+
+      <button id="enter-btn">
+        <span class="eb-border"></span>
+        <span class="eb-scan"></span>
+        <span class="eb-label">
+          <span class="eb-arr">◀</span>
+          ENTER
+          <span class="eb-arr">▶</span>
+        </span>
+      </button>
+
+      <div id="enter-loader" style="display:none;">
+        <div class="el-track">
+          <div class="el-fill" id="el-fill"></div>
+        </div>
+        <div class="el-msg" id="el-msg">BOOTING SYSTEM...</div>
+      </div>
+    </div>
+
+    <div class="es-hud-bot">
+      <span>STATUS</span>
+      <span id="es-ticker">▓░░░░░░░░░</span>
+      <span>ACCESS READY</span>
+    </div>
+  </section>
+
+  <!-- PROFILE PAGE -->
+  <main id="profile-page" style="display:none;">
+    <canvas id="bg-canvas"></canvas>
+    <div class="bg-grid-overlay"></div>
+    <div class="bg-orb o1"></div>
+    <div class="bg-orb o2"></div>
+    <div class="bg-orb o3"></div>
+
+    <section class="profile-wrap">
+      <div class="profile-panel nb">
+        <span class="nb-b"></span>
+
+        <div class="profile-glass">
+          <div class="avatar-zone">
+            <div class="av-wrap">
+              <div class="av-ring ar1"></div>
+              <div class="av-ring ar2"></div>
+              <div class="av-ring ar3"></div>
+
+              <!-- CHANGE THIS IMAGE LATER -->
+              <img
+                class="av-img"
+                src="https://xatimg.com/image/Z9LpDMffivSw.jpg"
+                alt="avatar"
+              >
+            </div>
+          </div>
+
+          <div class="profile-info">
+            <span class="pc-sys">USER LOCATION</span>
+            <h2 class="pc-name" data-text="UK">UK</h2>
+            <div class="pc-meta">
+              <div class="pc-metarow">CYBER RESIDENCE // UNITED KINGDOM</div>
+              <div class="pc-online">
+                <span class="online-dot"></span>
+                <span class="online-txt">LIVE SIGNAL</span>
+              </div>
+            </div>
+
+            <div class="pc-badges">
+              <span class="pcb">Don't</span>
+              <span class="pcb">Copy</span>
+              <span class="pcb">Me</span>
+              <span class="pcb">Got it?</span>
+            </div>
+          </div>
+
+          <div class="music-panel nb">
+            <span class="nb-b"></span>
+
+            <div class="music-viz">
+              <canvas id="music-canvas" width="200" height="200"></canvas>
+
+              <div class="vinyl" id="vinyl">
+                <div class="vinyl-grooves"></div>
+                <div class="vinyl-lbl">YT</div>
+              </div>
+            </div>
+
+            <div class="music-ctrl">
+              <span class="mc-sys">AUDIO CONTROL INTERFACE</span>
+              <h3 class="mc-title">Central Cee - band4band</h3>
+              <p class="mc-sub" id="mstatus">❙❙ PAUSED</p>
+
+              <div class="mc-eq" id="mc-eq"></div>
+
+              <div class="mc-prog">
+                <span class="mc-t" id="tc">0:00</span>
+                <div class="mc-pb" id="mc-pb">
+                  <div class="mc-pf" id="mc-pf"></div>
+                  <div class="mc-ph" id="mc-ph"></div>
+                </div>
+                <span class="mc-t" id="tt">3:33</span>
+              </div>
+
+              <div class="mc-btns">
+                <button class="mb msm" id="btn-prev">↺</button>
+
+                <button class="mb mmain" id="btn-play">
+                  <span id="play-ico">▶</span>
+                  <span id="pause-ico" style="display:none;">❙❙</span>
+                </button>
+
+                <button class="mb msm" id="btn-next">↻</button>
+              </div>
+
+              <div class="mc-vol">
+                <button class="mb mvol" id="bvd">−</button>
+
+                <div class="vol-wrap">
+                  <div class="vol-track">
+                    <div class="vol-fill" id="vfill" style="width:75%;"></div>
+                  </div>
+                  <input id="vrange" class="vol-slider" type="range" min="0" max="100" value="75">
+                </div>
+
+                <button class="mb mvol" id="bvu">+</button>
+                <span class="vol-lbl" id="vlbl">75%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- hidden youtube iframe -->
+          <div id="yt-wrap" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;">
+            <iframe
+              id="yt-player"
+              width="1"
+              height="1"
+              src="https://www.youtube.com/embed/pDddlvCfTiw?enablejsapi=1&rel=0&controls=0"
+              title="YouTube player"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+  <script src="anti-copy.js"></script>
+</body>
+</html>
